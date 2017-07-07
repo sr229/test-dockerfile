@@ -15,6 +15,7 @@ RUN apt update && \
     apt -y install \
     apt-utils \ 
     wget \
+    mc \
     sudo \
     bash \
     git \
