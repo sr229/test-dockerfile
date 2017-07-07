@@ -20,6 +20,7 @@ RUN apt update && \
     git \
     wget \
     ssh \
+    openssh-server \
     tar \
     gzip \
     build-essential \
@@ -41,12 +42,12 @@ RUN apt update && apt -y install nodejs
     
 # now we create a dummy account 
 
-USER clara
 RUN  mkdir /var/run/sshd && \
      sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
      echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-     useradd -u 1000 -G clara,sudo -d /home/clara --shell /bin/bash -m clara && \
+     useradd -u 1000 -G users,sudo -d /home/clara --shell /bin/bash -m clara && \
      usermod -p "*" clara
+USER clara
     
 # some stuff
 
