@@ -34,7 +34,7 @@ RUN set -ex \
   done
 
 RUN wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN apt update && apt -y install nodejs
+RUN sudo apt update && sudo apt -y install nodejs
 
 EXPOSE 1337 3000 4200 5000 9000 8003
 RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
