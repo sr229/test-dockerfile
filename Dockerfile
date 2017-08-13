@@ -20,7 +20,7 @@ RUN sudo apt-get update && \
     sudo apt -y install python3-pip && \
     python3 -m pip install --upgrade pip && \
     python3 -m pip install pytest && \
-    python3 -m pip install flake8 pylint
+    python3 -m pip install flake8 pylint && \
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* 
