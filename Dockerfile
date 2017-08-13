@@ -7,15 +7,13 @@
 # Codenvy, S.A. - initial API and implementation
 
 FROM eclipse/stack-base:debian
-ENV NODE_VERSION=7.7.3 \
-    NODE_PATH=/usr/local/lib/node_modules
-    
+
 RUN sudo apt-get update && \
     sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
     sudo gem install sass compass && \
     sudo apt-get clean && \
     sudo add-apt-repository ppa:jonathonf/python-3.6 && \
-    apt update && \
+    sudo apt update && \
     sudo apt -y install python3.6 && \
     sudo rm -rf /usr/bin/python3 && \
     sudo ln -s /usr/bin/python3.6 /usr/bin/python3 && \
