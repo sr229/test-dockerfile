@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: chinodesuuu/ci-amethyst
+      - image: node:7.4.0
     working_directory: src
     steps:
       - setup_remote_docker
@@ -17,9 +17,7 @@ jobs:
             mv /tmp/docker/* /usr/bin
       - run:
           name: Docker Build
-          command: docker build -f Dockerfile -t kitsudev:latest .
-       - run:
+          command: docker build -f Dockerfile -t chinodesuuu/kitsudev:latest .
+      - run:
           name: Docker Push
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/kitsudev:latest
-                   
-                   
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/ci-amethyst:latest
