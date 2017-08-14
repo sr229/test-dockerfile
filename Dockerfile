@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/stack-base:debian
+FROM eclipse/stack-base:ubuntu
 ENV NODE_VERSION=7.7.3 \
     NODE_PATH=/usr/local/lib/node_modules
     
