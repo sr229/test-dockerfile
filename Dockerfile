@@ -9,7 +9,7 @@
 FROM eclipse/stack-base:debian
 
 RUN sudo apt-get update && \
-    sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
+    sudo apt-get -y install build-essential libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
     sudo gem install sass compass && \
     sudo apt-get clean && \
     sudo add-apt-repository ppa:jonathonf/python-3.6 && \
