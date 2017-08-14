@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM eclipse/stack-base:debian
+FROM eclipse/stack-base:ubuntu
 
 RUN sudo apt-get update && \
     sudo apt-get -y install build-essential libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
