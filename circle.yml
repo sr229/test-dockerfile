@@ -17,7 +17,7 @@ jobs:
             mv /tmp/docker/* /usr/bin
       - run:
           name: Docker Build
-          command: docker build -f Dockerfile -t chinodesuuu/ci-amethyst:latest .
+          command: docker build -f Dockerfile -t chinodesuuu/kitsudev:latest .
       - run:
           name: Docker Push
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/kitsudev:latest
