@@ -9,7 +9,7 @@
 FROM eclipse/stack-base:ubuntu
 
 RUN sudo apt-get update && \
-    sudo apt-get -y install build-essential libkrb5-dev gcc make debian-keyring python2.7 && \
+    sudo apt-get -y apt-transport-https install build-essential libkrb5-dev gcc make debian-keyring python2.7 && \
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
     sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
     sudo apt-get update && \
