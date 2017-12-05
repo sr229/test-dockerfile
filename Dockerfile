@@ -18,6 +18,23 @@ RUN sudo apt-get update && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* 
 
+RUN sudo apt-get update && \
+    sudo apt-get -y install build-essential libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
+    sudo gem install sass compass && \
+    sudo apt-get clean && \
+    sudo add-apt-repository ppa:jonathonf/python-3.6 && \
+    sudo apt update && \
+    sudo apt -y install python3.6 && \
+    sudo rm -rf /usr/bin/python3 && \
+    sudo ln -s /usr/bin/python3.6 /usr/bin/python3 && \
+    sudo apt -y install python3-pip && \
+    sudo python3 -m pip install --upgrade pip && \
+    sudo python3 -m pip install pytest && \
+    sudo python3 -m pip install flake8 pylint && \
+    sudo apt-get -y autoremove && \
+    sudo apt-get -y clean && \
+    sudo rm -rf /var/lib/apt/lists/* 
+
 RUN set -ex \
   && for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
