@@ -22,9 +22,10 @@ RUN sudo apt-get update && \
     sudo apt-get -y install build-essential libkrb5-dev gcc make ruby-full rubygems debian-keyring python-software-properties software-properties-common apt-utils && \
     sudo gem install sass compass && \
     sudo apt-get clean && \
+    sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"  && \
     sudo add-apt-repository ppa:jonathonf/python-3.6 && \
     sudo apt update && \
-    sudo apt -y install python3.6 && \
+    sudo apt -y install python3.6 heroku && \
     sudo rm -rf /usr/bin/python3 && \
     sudo ln -s /usr/bin/python3.6 /usr/bin/python3 && \
     sudo apt -y install python3-pip && \
