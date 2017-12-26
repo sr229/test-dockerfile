@@ -33,7 +33,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-RUN wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN wget -qO- https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt update && sudo apt -y install nodejs git ncurses-dev wget curl gcc clang 
 RUN mkdir /home/user/workspace
 
