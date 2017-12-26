@@ -40,7 +40,7 @@ RUN mkdir /home/user/workspace
 # Cloud 9 
 
 RUN cd /opt && \
-       sudo git pull https://github.com/c9/core && \
+       sudo git clone https://github.com/c9/core && \
        cd core \
        sudo /bin/sh -c ./scripts/install-sdk.sh \
        
