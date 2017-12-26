@@ -11,7 +11,7 @@ RUN sudo apt-get update && \
 EXPOSE 8181
 ENV USERNAME ""
 ENV PASSWORD ""
-ADD run_usercommand.sh /home/user/    
+ADD run_usercommand.sh /tmp/    
 RUN wget -qO- https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt update && sudo apt -y install nodejs git ncurses-dev wget curl clang 
 RUN mkdir /home/user/workspace
@@ -27,4 +27,4 @@ RUN cd /opt && \
        
 USER user
 WORKDIR /home/user/workspace
-CMD ["/home/user/run_usercommand.sh"] 
+CMD ["sudo", "/tmp/run_usercommand.sh"] 
