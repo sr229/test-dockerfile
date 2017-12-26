@@ -34,8 +34,16 @@ RUN set -ex \
   done
 
 RUN wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN sudo apt update && sudo apt -y install nodejs
+RUN sudo apt update && sudo apt -y install nodejs git ncurses-dev wget curl gcc clang 
+RUN mkdir /home/user/workspace
 
-EXPOSE 1337 3000 4200 5000 9000 8003
-RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
-LABEL che:server:8003:ref=angular che:server:8003:protocol=http che:server:3000:ref=node-3000 che:server:3000:protocol=http che:server:9000:ref=node-9000 che:server:9000:protocol=http
+# Cloud 9 
+
+RUN cd /opt && \
+       sudo git pull https://github.com/c9/core && \
+       cd core \
+       sudo /bin/sh -c ./scripts/install-sdk.sh \
+       
+CMD ["/usr/sbin/sshd", "-p 22", "-D", "&&", "/usr/bin/nodejs", "/opt/core/server.js", "--auth" "user:cloud9"]
+
+EXPOSE 8181 22
