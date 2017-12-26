@@ -2,7 +2,6 @@ FROM eclipse/stack-base:ubuntu
     
 RUN sudo apt-get update && \
     sudo apt-get -y install build-essential libssl-dev libkrb5-dev gcc make debian-keyring && \
-    sudo gem install sass compass && \
     sudo apt-get clean && \
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
