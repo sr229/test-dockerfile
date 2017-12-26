@@ -41,7 +41,7 @@ RUN mkdir /home/user/workspace
 
 RUN cd /opt && \
        sudo git clone https://github.com/c9/core && \
-       cd core \
+       cd core && \
        sudo /bin/sh -c ./scripts/install-sdk.sh \
        
 CMD ["/usr/sbin/sshd", "-p 22", "-D", "&&", "/usr/bin/nodejs", "/opt/core/server.js", "--auth" "user:cloud9"]
