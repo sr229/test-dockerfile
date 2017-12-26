@@ -6,8 +6,12 @@ RUN sudo apt-get update && \
     sudo apt-get clean && \
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
-    sudo rm -rf /var/lib/apt/lists/* 
+    sudo rm -rf /var/lib/apt/lists/*
     
+EXPOSE 8181
+ENV USERNAME ""
+ENV PASSWORD ""
+ADD run_usercommand.sh /tmp/    
 RUN wget -qO- https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt update && sudo apt -y install nodejs git ncurses-dev wget curl gcc clang 
 RUN mkdir /home/user/workspace
@@ -17,8 +21,10 @@ RUN mkdir /home/user/workspace
 RUN cd /opt && \
        sudo git clone https://github.com/c9/core && \
        cd core && \
-       sudo /bin/sh -c ./scripts/install-sdk.sh \
+       sudo /bin/sh -c ./scripts/install-sdk.sh 
        
-CMD ["/usr/sbin/sshd", "-p 22", "-D", "&&", "/usr/bin/nodejs", "/opt/core/server.js", "--auth" "user:cloud9"]
-
-EXPOSE 8181 22
+       
+       
+USER user
+WORKDIR /home/workspace
+CMD ["/tmp/run_usercommand.sh"] 
